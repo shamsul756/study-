@@ -55,7 +55,7 @@ export function Navbar() {
                         </Link>
 
                         <Link
-                            href="/allroom"
+                            href="/rooms"
                             className="font-medium text-slate-700 hover:text-blue-600 transition-all duration-200 hover:-translate-y-0.5"
                         >
                             All Rooms

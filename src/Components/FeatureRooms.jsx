@@ -3,12 +3,9 @@ import { ArrowRight } from "lucide-react";
 import RoomsFeaturedCard from "./RoomsFeatureCard";
 import { RoomsFetured } from "@/lib/rooms/data";
 
-
-
-
-const FeaturedRooms= async () => {
+const FeaturedRooms = async () => {
     const rooms = await RoomsFetured();
-    // console.log(courses);
+    
 
     return (
         <section className="py-24 bg-slate-50">
@@ -16,9 +13,9 @@ const FeaturedRooms= async () => {
                 <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
                     <div className="space-y-4">
                         <h2 className="text-blue-600 font-bold uppercase tracking-widest text-sm">Top Rated</h2>
-                        <h3 className="text-4xl font-extrabold text-slate-900">Featured Courses</h3>
+                        <h3 className="text-4xl font-extrabold text-slate-900">Featured Study Spaces</h3>
                         <p className="text-slate-500 max-w-xl">
-                            Handpicked premium courses designed to help you master the most in-demand skills in the industry today.
+                            Handpicked premium rooms and workspaces designed to give you the ultimate environment for deep focus and productivity.
                         </p>
                     </div>
                     <Button
@@ -26,7 +23,7 @@ const FeaturedRooms= async () => {
                         color="primary"
                         className="rounded-full font-bold group"
                     >
-                        View All Courses <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        View All Spaces <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                 </div>
 
@@ -34,7 +31,6 @@ const FeaturedRooms= async () => {
                     {
                     rooms?.map(room => <RoomsFeaturedCard key={room?._id} room={room} />)
                     }
-
                 </div>
             </div>
         </section>

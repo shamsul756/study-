@@ -8,6 +8,16 @@ import FeaturedRooms from "@/Components/FeatureRooms";
 export default function Home() {
   return (
     <>
+        {/* const { 
+            _id, 
+            image, 
+            name, 
+            description, 
+            floor, 
+            capacity, 
+            hourlyRate, 
+            amenities 
+        } = rooms; */}
     <Banner/>
     
     <FeaturedRooms/>

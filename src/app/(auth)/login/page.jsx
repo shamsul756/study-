@@ -4,28 +4,34 @@ import { Button, Input } from '@heroui/react';
 import Link from 'next/link';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import { signIn } from "@/lib/auth-client";
 export default function Login() {
-    const handleLogin = async (e) => {
+   
+    const handleLogin= async (e) => {
         e.preventDefault();
+        // console.log(e.currentTarget);
 
-        const form = e.target;
+        const formData = new FormData(e.currentTarget)
+        // console.log(formData);
 
-        const email = form.email.value;
-        const password = form.password.value;
+        const loginData = Object.fromEntries(formData.entries());
 
-        try {
-            // your login logic here
-            console.log(email, password);
+        const { data, error } = await signIn.email({
+            ...loginData,
+            callbackURL: "/"
+        })
 
-            // example success
-            toast.success("Login successful");
 
-            form.reset();
-        } catch (error) {
-            console.error(error);
-            toast.error("Login failed. Try again");
+
+
+        if (error) {
+            toast.error("Registration failed")
+            return;
         }
-    };
+        // router.push("/")
+
+
+    }
 
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50">

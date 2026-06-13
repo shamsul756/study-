@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 
 
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +35,9 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
+        <Toaster/>
         <Footer/>
+        
         </body>
     </html>
   );

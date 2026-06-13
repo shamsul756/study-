@@ -1,11 +1,34 @@
 'use client';
-
 import { Button, Input } from '@heroui/react';
-
 import Link from 'next/link';
 import { User, Mail, Lock, ArrowRight } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { signUp } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
+
 
 export default function Register() {
+    const router = useRouter();
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        // console.log(e.currentTarget);
+
+        const formData = new FormData(e.currentTarget)
+        // console.log(formData);
+
+        const registerData = Object.fromEntries(formData.entries())
+        const { data, error } = await signUp.email({
+            ...registerData
+        })
+        if (error) {
+            toast.error("Registration failed")
+            return;
+        }
+        router.push("/")
+
+
+    }
+
 
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
@@ -21,7 +44,7 @@ export default function Register() {
                             <p className="text-slate-500 font-medium">Create your account to start learning</p>
                         </div>
 
-                        <form
+                        <form onSubmit={handleRegister}
                             className="space-y-6"
                         >
                             <div className="space-y-2">
@@ -49,14 +72,12 @@ export default function Register() {
                                     Email Address
                                 </label>
                                 <Input
-                                    id="password"
+                                    id="email"
                                     required
-                                    placeholder="••••••••"
-                                    type="password"
-                                    name="password"
-                                    pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-                                    title="Password must be at least 8 characters long and contain both uppercase and lowercase letters"
-                                    startContent={<Lock className="w-5 h-5 text-slate-400" />}
+                                    placeholder="Enter your email"
+                                    type="email"
+                                    name="email"
+                                    startContent={<Mail className="w-5 h-5 text-slate-400" />}
                                     className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
                                 />
                             </div>
@@ -91,6 +112,8 @@ export default function Register() {
                                     placeholder="••••••••"
                                     type="password"
                                     name="password"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                                    title="Password must be at least 8 characters long and contain both uppercase and lowercase letters"
                                     startContent={<Lock className="w-5 h-5 text-slate-400" />}
                                     className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
                                 />
@@ -99,7 +122,7 @@ export default function Register() {
                             <Button
                                 color="primary"
                                 type="submit"
-                               
+
                                 className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-blue-600/20 group"
                             >
                                 Create Account <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

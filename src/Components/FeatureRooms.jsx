@@ -8,23 +8,17 @@ const FeaturedRooms = async () => {
     
 
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-slate-50 ">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
                     <div className="space-y-4">
-                        <h2 className="text-blue-600 font-bold uppercase tracking-widest text-sm">Top Rated</h2>
-                        <h3 className="text-4xl font-extrabold text-slate-900">Featured Study Spaces</h3>
-                        <p className="text-slate-500 max-w-xl">
+                        <h2 className="text-blue-600 font-bold uppercase tracking-widest text-sm text-center">Top Rated</h2>
+                        <h3 className="text-4xl font-extrabold text-slate-900 text-center">Featured Study <span className="text-cyan-800">Spaces</span></h3>
+                        <p className="text-slate-500 max-w-xl text-center">
                             Handpicked premium rooms and workspaces designed to give you the ultimate environment for deep focus and productivity.
                         </p>
                     </div>
-                    <Button
-                        variant="flat"
-                        color="primary"
-                        className="rounded-full font-bold group"
-                    >
-                        View All Spaces <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                  
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,19 +1,32 @@
 
+import { auth } from '@/lib/auth';
 import { Chip } from '@heroui/react';
 import { BookOpen, Clock, BarChart, Users } from 'lucide-react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 
-const fetchSingleRooms = async ({ id }) => {
+const fetchSingleRooms = async ({ id, token }) => {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/rooms/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/rooms/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}` || ""
+    }
+        }
     );
-    const data = await res.json();
-    return data || {};
+const data = await res.json();
+return data || {};
 };
 
 export default async function RoomDetails({ params }) {
     const { id } = await params;
-    const rooms = await fetchSingleRooms({ id });
+
+    const { token } = await auth.api.getToken({
+        headers: await headers(),
+    });
+
+
+
+    const rooms = await fetchSingleRooms({ id, token });
 
     const {
         _id,

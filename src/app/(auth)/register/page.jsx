@@ -3,31 +3,37 @@ import { Button, Input } from '@heroui/react';
 import Link from 'next/link';
 import { User, Mail, Lock, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { signUp } from '@/lib/auth-client';
+
 import { useRouter } from 'next/navigation';
+import { signUp } from '@/lib/auth-client';
 
 
 export default function Register() {
     const router = useRouter();
     const handleRegister = async (e) => {
-        e.preventDefault();
-        // console.log(e.currentTarget);
+    e.preventDefault();
 
-        const formData = new FormData(e.currentTarget)
-        // console.log(formData);
+    const formData = new FormData(e.currentTarget)
+    const registerData = Object.fromEntries(formData.entries())
+    
+    // 1. Make the signup request
+    const { data, error } = await signUp.email({
+        ...registerData
+    })
+    
+  if (error) {
 
-        const registerData = Object.fromEntries(formData.entries())
-        const { data, error } = await signUp.email({
-            ...registerData
-        })
-        if (error) {
-            toast.error("Registration failed")
-            return;
-        }
-        router.push("/login")
+    toast.error(error.message || "Registration failed");
+    console.log(error.message);
+    return;
+}
 
+    // 2. LOG THE DATA HERE TO SEE THE TOKEN / SESSION INFO
+    console.log("Registration successful! Response data:", data);
 
-    }
+    router.push("/login")
+}
+    
 
 
     return (
@@ -39,7 +45,7 @@ export default function Register() {
 
                         <div className="text-center space-y-2 relative">
                             <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                                Join <span className="text-blue-600">Mentora</span>
+                                register
                             </h2>
                             <p className="text-slate-500 font-medium">Create your account to start learning</p>
                         </div>

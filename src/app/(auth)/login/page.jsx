@@ -4,9 +4,9 @@ import { Button, Input } from '@heroui/react';
 import Link from 'next/link';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { signIn } from "@/lib/auth-client";
-export default function Login() {
-   
+import { authClient } from "@/lib/auth-client";
+
+export default async function Login() {
     const handleLogin= async (e) => {
         e.preventDefault();
         // console.log(e.currentTarget);
@@ -16,13 +16,14 @@ export default function Login() {
 
         const loginData = Object.fromEntries(formData.entries());
 
-        const { data, error } = await signIn.email({
+        const { data, error } = await authClient.signIn.email({
             ...loginData,
             callbackURL: "/"
-        })
+        });
 
 
-
+    // const { data:tokenData } = await authClient.token()
+    // console.log(tokenData, "token data are");
 
         if (error) {
             toast.error("Registration failed")

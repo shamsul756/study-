@@ -139,20 +139,30 @@ export function Navbar() {
                                 </button>
 
                                 {/* Dropdown Menu */}
-                                <div className="absolute right-0 top-12 w-56 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden group-hover:flex flex-col py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                                <div className="absolute right-0 top-12 w-56 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden group-hover:flex flex-col py-2 z-50">
                                     <div className="px-4 py-3 border-b border-slate-100">
                                         <p className="font-bold text-sm">Welcome back!</p>
                                         <p className="text-xs truncate text-slate-500">
                                             {session?.user?.email}
                                         </p>
                                     </div>
+                                    <div className="items-center gap-4">
+                                        <Link
+                                            href="/my-listing"
+                                            className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                                        >
+                                            My Listing
+                                        </Link>
 
-                                    <Link
-                                        href="/settings"
-                                        className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors"
-                                    >
-                                        <User className="w-4 h-4" /> Settings
-                                    </Link>
+                                        <Link href="/my-booking">
+                                            <Button
+                                                variant="flat"
+                                                className="font-medium bg-cyan-100 cursor-pointer"
+                                            >
+                                                My Booking
+                                            </Button>
+                                        </Link>
+                                    </div>
                                     <button
                                         onClick={handleLogOut}
                                         className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 flex items-center gap-3 transition-colors text-left w-full"

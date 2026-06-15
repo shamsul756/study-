@@ -77,6 +77,7 @@ const RoomsCards = ({ room }) => {
             <div className="flex items-baseline gap-0.5">
               <span className="text-xl font-extrabold text-slate-900">${hourlyRate}</span>
               <span className="text-xs font-medium text-slate-500">/hr</span>
+             
             </div>
           </div>
 

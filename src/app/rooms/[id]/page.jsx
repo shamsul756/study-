@@ -1,6 +1,9 @@
 
+
+
+import EnrollmentButton from '@/Components/EnrollmentButton';
 import { auth } from '@/lib/auth';
-import { Chip } from '@heroui/react';
+import { Button, Chip } from '@heroui/react';
 import { BookOpen, Clock, BarChart, Users } from 'lucide-react';
 import { headers } from 'next/headers';
 import Image from 'next/image';
@@ -10,11 +13,11 @@ const fetchSingleRooms = async ({ id, token }) => {
         `${process.env.NEXT_PUBLIC_API_URL}/rooms/${id}`, {
         headers: {
             authorization: `Bearer ${token}` || ""
-    }
         }
+    }
     );
-const data = await res.json();
-return data || {};
+    const data = await res.json();
+    return data || {};
 };
 
 export default async function RoomDetails({ params }) {
@@ -188,6 +191,7 @@ export default async function RoomDetails({ params }) {
                         <p className="text-center text-xs text-slate-500 font-bold">
                             Available for booking • Quiet Study Environment
                         </p>
+                        <EnrollmentButton room={rooms} />
                     </div>
                 </div>
 

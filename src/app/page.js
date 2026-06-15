@@ -4,7 +4,7 @@ import LibraryCards from "@/Components/LibrayCard";
 import Image from "next/image";
 import RoomsPage from "./rooms/page";
 import FeaturedRooms from "@/Components/FeatureRooms";
-import Hero from "@/Components/Hero";
+
 
 
 export default function Home() {

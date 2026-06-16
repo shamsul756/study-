@@ -11,8 +11,10 @@
 ![alt text](image-5.png)
 <!-- register -->
 ![alt text](image-6.png)
-
-
+<!-- addroom -->
+![alt text](image-7.png)
+<!-- cancel button -->
+![alt text](image-8.png)
 
 
 

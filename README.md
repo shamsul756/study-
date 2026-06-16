@@ -7,6 +7,10 @@
 ![alt text](image-3.png)
 <!-- footer section -->
 ![alt text](image-4.png)
+<!-- login -->
+![alt text](image-5.png)
+<!-- register -->
+![alt text](image-6.png)
 
 
 

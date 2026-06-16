@@ -15,7 +15,8 @@
 ![alt text](image-7.png)
 <!-- cancel button -->
 ![alt text](image-8.png)
-
+<!-- swipper  -->
+![alt text](image-9.png)
 
 
 

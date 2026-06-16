@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from 'react';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide} from 'swiper/react';
 import { Search, PlusCircle, ArrowRight, GraduationCap, BookOpen, Users } from 'lucide-react';
 import { BookmarkCheck, Sparkles } from 'lucide-react';
 // Import Swiper styles
@@ -12,7 +12,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
-
+// all okay
 
 const Banner = () => {
   return (

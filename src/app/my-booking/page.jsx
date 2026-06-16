@@ -17,12 +17,15 @@ export default async function MyBooking() {
     const { token } = await auth.api.getToken({
         headers: await headers(),
     });
-    console.log(session, "comming form booking");
-    const res = await fetch(`http://localhost:8000/enrollments/${session?.user?.id}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    })
+   
+   const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/enrollments/${session?.user?.id}`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
     const enrollments = await res.json() || [];
 
     return (
@@ -65,7 +68,7 @@ export default async function MyBooking() {
                                 >
                                     <Image
                                         src={enrollment?.image}
-                                        alt="course"
+                                        alt="room"
                                         width={120}
                                         height={90}
                                         className="rounded-lg"
@@ -104,10 +107,10 @@ title}</h3>
 const NotFound = () => {
     return (
         <div className="p-12 text-center bg-slate-50 border rounded-2xl">
-            <p className="mb-4">No courses yet</p>
+            <p className="mb-4">No Rooms yet</p>
 
-            <Link href="/courses">
-                <Button>Browse Courses</Button>
+            <Link href="/rooms">
+                <Button>Browse Rooms</Button>
             </Link>
         </div>
     );

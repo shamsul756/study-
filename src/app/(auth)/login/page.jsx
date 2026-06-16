@@ -134,7 +134,7 @@ export default async function Login() {
 
                         <div className="text-center pt-2">
                             <p className="text-sm text-slate-500 font-medium">
-                                New to CourseHub?{' '}
+                                New to RoomHub?{' '}
                                 <Link
                                     href="/register"
                                     className="text-blue-600 font-black hover:underline underline-offset-4 transition-all"

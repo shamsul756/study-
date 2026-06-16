@@ -1,23 +1,16 @@
 import RoomsCards from "@/Components/RoomsCards";
 import RoomesHeader from "@/Components/RoomsHeader";
 import { fetchingRooms } from "@/lib/rooms/data";
-
-// import { fetchRooms } from "@/lib/rooms/data";
 import { Button } from "@heroui/react";
 import { BookOpen, Filter } from "lucide-react";
 
-
-// { searchParams }
-// // console.log(searchParams);
-// const sParams = await searchParams;
-// // console.log(sParams);
-// const rooms = await fetchRooms(sParams?.searchTerm || "");
-
-
-
-const RoomsPage = async () => {
-    const rooms = await fetchingRooms();
+const RoomsPage = async ({ searchParams }) => {
+    const sParams = await searchParams;
+    const searchTerm = sParams?.searchTerm || "";
+    
    
+    const rooms = await fetchingRooms({ searchTerm });
+    
     return (
         <div className="min-h-screen bg-slate-50">
             {/* Header */}
@@ -40,14 +33,20 @@ const RoomsPage = async () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
-                        rooms?.map((room) => <RoomsCards key={room._id} room={room} />
+                        rooms && rooms.length > 0 ? (
+                            rooms.map((room) => (
+                                <RoomsCards key={room._id} room={room} />
+                            ))
+                        ) : (
+                            <p className="text-center col-span-full text-slate-500 py-10">
+                                "{searchTerm}" no room avaiable 
+                            </p>
                         )
                     }
                 </div>
-
-
             </main>
         </div>
     );
 };
+
 export default RoomsPage;

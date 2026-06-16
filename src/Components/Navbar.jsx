@@ -196,7 +196,7 @@ export function Navbar() {
                         Home
                     </Link>
                     <Link
-                        href="/allroom"
+                        href="/rooms"
                         className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl"
                     >
                         All Rooms

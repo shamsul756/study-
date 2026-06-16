@@ -11,7 +11,7 @@ const EnrollmentRoom = () => {
         >
             <Image
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600"
-                alt="course"
+                alt="Roomes"
                 width={120}
                 height={90}
                 className="rounded-lg"

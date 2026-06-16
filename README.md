@@ -1,3 +1,23 @@
+website link: https://study-phi-coral.vercel.app
+
+StudyNook – Study Room Booking Platform
+
+StudyNook is a full-stack web application that helps students and library users find, create, and book study rooms with ease. Users can browse available rooms, search and filter listings based on their needs, and reserve rooms for specific dates and time slots.
+
+Key Features
+🔍 Search & Filter Rooms – Quickly find study spaces using search and filtering options.
+🏠 Create & Manage Rooms – Users who control study spaces can create new room listings and manage existing ones.
+📅 Room Booking System – Book rooms for specific dates and time slots.
+⚡ Conflict Detection – Automatically prevents double-booking by detecting overlapping reservations.
+👤 User Dashboard – Manage personal bookings and room listings from a dedicated dashboard.
+🔐 Secure Authentication – JWT-based authentication stored in HTTP-only cookies for enhanced security.
+🚀 Google Sign-In – Users can easily register and log in using their Google account.
+📱 Responsive Design – Fully responsive interface optimized for desktop, tablet, and mobile devices.
+Project Goal
+
+StudyNook streamlines the process of discovering and reserving study spaces, providing a secure, user-friendly, and efficient platform for both room owners and students.
+
+Tech Stack: MongoDB, Express.js, React, Node.js, Next.js (MERN), JWT Authentication, Google OAuth, Tailwind CSS
 <!-- navbar  -->
 ![alt text](image.png)
 <!-- banner -->
